@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { StartComponent } from './routes/start/start.component';
+import { MiniPostComponent } from './components/mini-post/mini-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    StartComponent
+    StartComponent,
+    MiniPostComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
