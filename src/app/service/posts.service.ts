@@ -22,7 +22,6 @@ export class PostsService {
         this._postsSource.next([]);
       }
     );
-    
   }
 
 }
