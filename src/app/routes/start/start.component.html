@@ -1,7 +1,22 @@
 <section class="page page--start">
-  <div class="container-fluid">
-    <div class="row start--posts">
-      <app-mini-post class="col-6 col-md-4 start--post"></app-mini-post>
+  <div class="container">
+    <div class="row justify-content-center text-center start--stats">
+      <div class="col-4 start--stats__item">
+        <div class="card mini-stats">
+          <div class="card-body">
+            <h5 class="card-title">{{ posts.length }} POSTS</h5>
+            <a href="#" class="card-link">See All</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 start--stats__item">
+        <div class="card mini-stats">
+          <div class="card-body">
+            <h5 class="card-title">{{ comments.length }} COMMENTS</h5>
+            <a href="#" class="card-link">See All</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
