@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PostsService } from '../../service/posts.service';
 import { CommentsService } from '../../service/comments.service';
@@ -9,7 +8,7 @@ import { CommentsService } from '../../service/comments.service';
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss']
 })
-export class StartComponent implements OnInit {
+export class StartComponent implements OnInit, OnDestroy {
 
   posts: any[];
   postsSubscription: Subscription;
@@ -17,8 +16,7 @@ export class StartComponent implements OnInit {
   comments: any[];
   commentsSubscription: Subscription;
 
-  constructor(private http: HttpClient,
-    private _postsService: PostsService,
+  constructor(private _postsService: PostsService,
     private _commentsService: CommentsService) { }
 
   ngOnInit() {
@@ -30,7 +28,12 @@ export class StartComponent implements OnInit {
     this._commentsService.getComments();
     this.commentsSubscription = this._commentsService.comments$.subscribe((value) => {
       this.comments = value
-    })
+    });
+  }
+
+  ngOnDestroy() {
+    this.postsSubscription.unsubscribe();
+    this.commentsSubscription.unsubscribe();
   }
 
 }
