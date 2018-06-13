@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PostsService } from '../../service/posts.service';
-import { CommentsService } from '../../service/comments.service';
+import { PostsService } from '../../services/posts.service';
+import { CommentsService } from '../../services/comments.service';
 import * as _ from 'lodash';
 
 @Component({
@@ -19,7 +19,7 @@ export class PostsComponent implements OnInit {
 
   constructor(private _postsService: PostsService,
     private _commentsService: CommentsService) { }
-  
+
   fillPosts() {
     let val = _.cloneDeep(this.posts);
     val.forEach(element => {

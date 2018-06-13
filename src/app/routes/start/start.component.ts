@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PostsService } from '../../service/posts.service';
-import { CommentsService } from '../../service/comments.service';
+import { PostsService } from '../../services/posts.service';
+import { CommentsService } from '../../services/comments.service';
 
 @Component({
   selector: 'app-start',
