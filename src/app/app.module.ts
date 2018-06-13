@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { StartComponent } from './routes/start/start.component';
 import { MiniPostComponent } from './components/mini-post/mini-post.component';
 import { PostsService } from './service/posts.service';
+import { CommentsService } from './service/comments.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { PostsService } from './service/posts.service';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [PostsService],
+  providers: [PostsService, CommentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
