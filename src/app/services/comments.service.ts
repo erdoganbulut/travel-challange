@@ -9,9 +9,8 @@ export class CommentsService {
 
   private _commentsSource = new BehaviorSubject<any>([]);
   comments$ = this._commentsSource.asObservable();
-  
-  constructor(private http: HttpClient) {
-  }
+
+  constructor(private http: HttpClient) { }
 
   getComments() {
     this.http.get('https://jsonplaceholder.typicode.com/comments').subscribe(

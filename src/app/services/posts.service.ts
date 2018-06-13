@@ -9,9 +9,8 @@ export class PostsService {
 
   private _postsSource = new BehaviorSubject<any>([]);
   posts$ = this._postsSource.asObservable();
-  
-  constructor(private http: HttpClient) {
-  }
+
+  constructor(private http: HttpClient) { }
 
   getPosts() {
     this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe(
