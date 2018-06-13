@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mini-post',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mini-post.component.scss']
 })
 export class MiniPostComponent implements OnInit {
+
+  @Input() detail: {};
 
   constructor() { }
 
