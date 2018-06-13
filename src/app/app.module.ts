@@ -10,6 +10,7 @@ import { MiniPostComponent } from './components/mini-post/mini-post.component';
 import { PostsService } from './services/posts.service';
 import { CommentsService } from './services/comments.service';
 import { PostsComponent } from './routes/posts/posts.component';
+import { UsersService } from './services/users.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { PostsComponent } from './routes/posts/posts.component';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [PostsService, CommentsService],
+  providers: [PostsService, CommentsService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
