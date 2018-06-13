@@ -1,0 +1,14 @@
+$this: 'start';
+
+section.page {
+  &.page--#{$this} {
+    .#{$this}--stats {
+      padding-top: 100px;
+      &__item {
+        .mini-stats {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
