@@ -9,13 +9,15 @@ import { StartComponent } from './routes/start/start.component';
 import { MiniPostComponent } from './components/mini-post/mini-post.component';
 import { PostsService } from './service/posts.service';
 import { CommentsService } from './service/comments.service';
+import { PostsComponent } from './routes/posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     StartComponent,
-    MiniPostComponent
+    MiniPostComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
