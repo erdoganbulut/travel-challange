@@ -12,6 +12,7 @@ import { CommentsService } from './services/comments.service';
 import { PostsComponent } from './routes/posts/posts.component';
 import { UsersService } from './services/users.service';
 import { SingleComponent } from './routes/single/single.component';
+import { SingleService } from './services/single.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { SingleComponent } from './routes/single/single.component';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [PostsService, CommentsService, UsersService],
+  providers: [PostsService, CommentsService, UsersService, SingleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
