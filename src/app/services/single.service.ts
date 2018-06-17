@@ -7,13 +7,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SingleService {
 
-  private _postSource = new BehaviorSubject<any>([]);
+  private _postSource = new BehaviorSubject<any>({});
   post$ = this._postSource.asObservable();
 
   constructor(private http: HttpClient) { }
 
   getPost(id: number) {
-    this.http.get(`https://jsonplaceholder.typicode.com/single/${id}`).subscribe(
+    this.http.get(`https://jsonplaceholder.typicode.com/posts/${id}`).subscribe(
       (value: any) => {
         this._postSource.next(value);
       },
