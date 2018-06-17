@@ -11,6 +11,7 @@ import { PostsService } from './services/posts.service';
 import { CommentsService } from './services/comments.service';
 import { PostsComponent } from './routes/posts/posts.component';
 import { UsersService } from './services/users.service';
+import { SingleComponent } from './routes/single/single.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UsersService } from './services/users.service';
     NavbarComponent,
     StartComponent,
     MiniPostComponent,
-    PostsComponent
+    PostsComponent,
+    SingleComponent
   ],
   imports: [
     BrowserModule,
