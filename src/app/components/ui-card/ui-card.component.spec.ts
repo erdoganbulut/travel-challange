@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MiniPostComponent } from './mini-post.component';
+import { UiCardComponent } from './ui-card.component';
 
-describe('MiniPostComponent', () => {
-  let component: MiniPostComponent;
-  let fixture: ComponentFixture<MiniPostComponent>;
+describe('UiCardComponent', () => {
+  let component: UiCardComponent;
+  let fixture: ComponentFixture<UiCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MiniPostComponent ]
+      declarations: [ UiCardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MiniPostComponent);
+    fixture = TestBed.createComponent(UiCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

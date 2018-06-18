@@ -1,0 +1,8 @@
+<div class="card ui-card">
+  <div class="card-body">
+    <h5 class="card-title" *ngIf="detail.title" [innerHtml]="detail.title | replace"></h5>
+    <h6 class="card-subtitle mb-2 text-muted" *ngIf="detail.subtitle" [innerHtml]="detail.subtitle | replace"></h6>
+    <p class="card-text" *ngIf="detail.body" [innerHtml]="detail.body | replace"></p>
+    <a [routerLink]="detail.url" class="card-link" *ngIf="detail.url" [innerHtml]="detail.urlText | replace"></a>
+  </div>
+</div>

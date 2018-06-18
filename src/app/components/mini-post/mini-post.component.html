@@ -1,8 +1,0 @@
-<div class="card mini-post">
-  <div class="card-body">
-    <h5 class="card-title">{{ detail.title }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">@ {{ detail.user }} | {{ detail.comments }} comments</h6>
-    <p class="card-text" [innerHtml]="detail.body.substring(0, 60) | replace"></p>
-    <a [routerLink]="'/posts/' + detail.id" class="card-link">read more</a>
-  </div>
-</div>
