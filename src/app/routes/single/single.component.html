@@ -1,3 +1,22 @@
-<p>
-  single works!
-</p>
+<section class="page page--single">
+  <div class="container-fluid">
+    <div class="card single">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@ {{ post.user }}</h6>
+        <p class="card-text">{{ post.body }}</p>
+      </div>
+    </div>
+    <div class="card single--comments">
+      <div class="card-body">
+        <h2>{{ post.comments.length }} Comments</h2>
+        <div class="card single--comment" *ngFor="let comment of post.comments">
+          <div class="card-body">
+            <h5 class="card-title">{{ comment.name }} <small>({{ comment.email }})</small></h5>
+            <p class="card-text">{{ comment.body }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
