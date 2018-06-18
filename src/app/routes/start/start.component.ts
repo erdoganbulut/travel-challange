@@ -11,15 +11,12 @@ import { UsersService } from '../../services/users.service';
 })
 export class StartComponent implements OnInit, OnDestroy {
 
-  posts: any[];
   postsSubscription: Subscription;
   detailPosts = {};
 
-  comments: any[];
   commentsSubscription: Subscription;
   detailComments = {};
 
-  users: any[];
   usersSubscription: Subscription;
   detailUsers = {};
 
@@ -28,27 +25,24 @@ export class StartComponent implements OnInit, OnDestroy {
     private _usersService: UsersService) { }
 
   fillPosts(value) {
-    this.posts = value;
     this.detailPosts = {
-      title: `${this.posts.length} POSTS`,
+      title: `${value.length} POSTS`,
       url: '/posts',
       urlText: 'See All'
     };
   }
 
   fillComments(value) {
-    this.comments = value;
     this.detailComments = {
-      title: `${this.comments.length} COMMENTS`,
+      title: `${value.length} COMMENTS`,
       url: '/comments',
       urlText: 'See All'
     };
   }
 
   fillUsers(value) {
-    this.users = value;
     this.detailUsers = {
-      title: `${this.users.length} USERS`,
+      title: `${value.length} USERS`,
       url: '/users',
       urlText: 'See All'
     };
