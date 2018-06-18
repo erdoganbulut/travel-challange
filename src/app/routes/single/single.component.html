@@ -1,9 +1,9 @@
 <section class="page page--single">
   <div class="container-fluid" *ngIf="this.id === this.post.id">
     <app-ui-card [detail]="postDetail"></app-ui-card>
-    <div class="card single--comments" *ngIf="post.comments">
+    <div class="card single--comments" *ngIf="commentsDetail">
       <div class="card-body">
-        <h2>{{ post.comments.length }} Comments</h2>
+        <h2>{{ commentsDetail.length }} Comments</h2>
         <app-ui-card *ngFor="let comment of commentsDetail" [detail]="comment"></app-ui-card>
       </div>
     </div>

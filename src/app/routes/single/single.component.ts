@@ -5,6 +5,10 @@ import * as _ from 'lodash';
 import { SingleService } from '../../services/single.service';
 import { CommentsService } from '../../services/comments.service';
 import { UsersService } from '../../services/users.service';
+import { Post } from '../../types/post.type';
+import { Comment } from '../../types/comment.type';
+import { User } from '../../types/user.type';
+
 
 @Component({
   selector: 'app-single',
@@ -14,17 +18,23 @@ import { UsersService } from '../../services/users.service';
 export class SingleComponent implements OnInit {
 
   id: number;
-  private routeSub: any;
 
-  post: { id, comments, user, userId, title, body };
-  postSubscription: Subscription;
+  post: Post;
+
+  users: User[];
+
+  comments: Comment[];
+
   postDetail = {};
+
   commentsDetail = [];
 
-  comments: any[];
+  routeSub: Subscription;
+
+  postSubscription: Subscription;
+
   commentsSubscription: Subscription;
 
-  users: any[];
   usersSubscription: Subscription;
 
   constructor(private route: ActivatedRoute,
@@ -35,34 +45,35 @@ export class SingleComponent implements OnInit {
   dedectId(id: number) {
     this.id = id;
     this._singleService.getPost(id);
-    this.fillPost();
   }
 
-  fillPost() {
-    if (this.post && this.users && this.comments) {
-      let user = _.find(this.users, { 'id': this.post.userId });
-      if (user) {
-        this.post.user = `${user.username} (${user.name})`;
-        this.post.comments = _.filter(this.comments, { 'postId': this.post.id });
-        this.fillDetail();
-      }
-    }
-  }
+  fillDetails() {
+    if (this.post.id !== null
+    && this.users
+    && this.comments
+    && this.users.length > 0
+    && this.comments.length > 0) {
+      let findUser = _.find(this.users, { 'id': this.post.userId });
+      let user = `${findUser.username} (${findUser.name})`;
 
-  fillDetail() {
-    this.postDetail = {
-      title: this.post.title,
-      subtitle: `@ ${this.post.user}`,
-      body: this.post.body,
-    };
-    this.commentsDetail = [];
-    this.post.comments.forEach(element => {
-      let comment = {
-        title: `${element.name} <small>(${element.email})</small>`,
-        body: element.body,
+      let findComments = _.filter(this.comments, { 'postId': this.post.id });
+      let comments = [];
+      findComments.forEach(element => {
+        let comment = {
+          title: `${element.name} <small>(${element.email})</small>`,
+          body: element.body,
+        };
+        comments.push(comment);
+      });
+
+      this.postDetail = {
+        title: this.post.title,
+        subtitle: `@ ${user}`,
+        body: this.post.body,
       };
-      this.commentsDetail.push(comment);
-    });
+
+      this.commentsDetail = comments;
+    }
   }
 
   ngOnInit() {
@@ -72,19 +83,19 @@ export class SingleComponent implements OnInit {
 
     this.postSubscription = this._singleService.post$.subscribe((post) => {
       this.post = post;
-      this.fillPost();
+      this.fillDetails();
     });
 
     this._commentsService.getComments();
-    this.commentsSubscription = this._commentsService.comments$.subscribe((value) => {
-      this.comments = value;
-      this.fillPost();
+    this.commentsSubscription = this._commentsService.comments$.subscribe((comments) => {
+      this.comments = comments;
+      this.fillDetails();
     });
 
     this._usersService.getUsers();
-    this.usersSubscription = this._usersService.users$.subscribe((value) => {
-      this.users = value;
-      this.fillPost();
+    this.usersSubscription = this._usersService.users$.subscribe((users) => {
+      this.users = users;
+      this.fillDetails();
     });
   }
 
