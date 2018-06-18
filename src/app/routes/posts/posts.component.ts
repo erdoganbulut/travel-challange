@@ -75,6 +75,7 @@ export class PostsComponent implements OnInit {
   ngOnDestroy() {
     this.postsSubscription.unsubscribe();
     this.commentsSubscription.unsubscribe();
+    this.usersSubscription.unsubscribe();
   }
 
 }

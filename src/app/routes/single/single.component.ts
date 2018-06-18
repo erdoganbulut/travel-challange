@@ -88,4 +88,10 @@ export class SingleComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.postSubscription.unsubscribe();
+    this.commentsSubscription.unsubscribe();
+    this.usersSubscription.unsubscribe();
+  }
+
 }
