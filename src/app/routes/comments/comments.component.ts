@@ -23,19 +23,14 @@ export class CommentsComponent implements OnInit {
   comments: Comment[];
   commentsSubscription: Subscription;
 
-  users: User[];
-  usersSubscription: Subscription;
-
   constructor(private _postsService: PostsService,
     private _commentsService: CommentsService,
     private _usersService: UsersService) { }
 
   fillDetail() {
     if (this.posts
-    && this.users
     && this.comments
     && this.posts.length > 0
-    && this.users.length > 0
     && this.comments.length > 0) {
       let detail = [];
       this.comments.forEach(element => {
@@ -65,18 +60,11 @@ export class CommentsComponent implements OnInit {
       this.comments = comments;
       this.fillDetail();
     });
-
-    this._usersService.getUsers();
-    this.usersSubscription = this._usersService.users$.subscribe((users) => {
-      this.users = users;
-      this.fillDetail();
-    })
   }
 
   ngOnDestroy() {
     this.postsSubscription.unsubscribe();
     this.commentsSubscription.unsubscribe();
-    this.usersSubscription.unsubscribe();
   }
 
 }
