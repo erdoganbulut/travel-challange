@@ -6,22 +6,9 @@ section.page {
 
     .card {
       border-radius: 0;
-      &.#{$this} {
-        margin-bottom: 20px;
-      }
       &.#{$this}--comments {
         h2 {
           font-size: 18px;
-        }
-        .#{$this}--comment {
-          margin-bottom: 10px;
-          margin-top: 10px;
-          .card-title {
-            font-size: 16px;
-          }
-          .card-text {
-            font-size: 12px;
-          }
         }
       }
     }
