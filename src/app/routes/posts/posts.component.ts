@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import * as _ from 'lodash';
 import { PostsService } from '../../services/posts.service';
 import { CommentsService } from '../../services/comments.service';
-import * as _ from 'lodash';
 import { UsersService } from '../../services/users.service';
 import { Post } from '../../types/post.type';
 import { Comment } from '../../types/comment.type';
