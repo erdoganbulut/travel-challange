@@ -14,6 +14,7 @@ export class PostsComponent implements OnInit {
 
   posts: any[];
   postsSubscription: Subscription;
+  postsDetail = [];
 
   comments: any[];
   commentsSubscription: Subscription;
@@ -33,6 +34,22 @@ export class PostsComponent implements OnInit {
       element.user = `${user.username} (${user.name})`;
     });
     this.posts = val;
+    this.fillDetail();
+  }
+
+  fillDetail() {
+    let detail = [];
+    this.posts.forEach(element => {
+      let post = {
+        title: element.title,
+        subtitle: `@ ${element.user} | ${element.comments} comments`,
+        body: element.body,
+        url: `/posts/${element.id}`,
+        urlText: 'read more',
+      };
+      detail.push(post);
+    });
+    this.postsDetail = detail;
   }
 
   ngOnInit() {

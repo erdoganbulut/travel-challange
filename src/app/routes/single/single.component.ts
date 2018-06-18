@@ -16,8 +16,10 @@ export class SingleComponent implements OnInit {
   id: number;
   private routeSub: any;
 
-  post: { id, comments, user, userId };
+  post: { id, comments, user, userId, title, body };
   postSubscription: Subscription;
+  postDetail = {};
+  commentsDetail = [];
 
   comments: any[];
   commentsSubscription: Subscription;
@@ -42,8 +44,25 @@ export class SingleComponent implements OnInit {
       if (user) {
         this.post.user = `${user.username} (${user.name})`;
         this.post.comments = _.filter(this.comments, { 'postId': this.post.id });
+        this.fillDetail();
       }
     }
+  }
+
+  fillDetail() {
+    this.postDetail = {
+      title: this.post.title,
+      subtitle: `@ ${this.post.user}`,
+      body: this.post.body,
+    };
+    this.commentsDetail = [];
+    this.post.comments.forEach(element => {
+      let comment = {
+        title: `${element.name} <small>(${element.email})</small>`,
+        body: element.body,
+      };
+      this.commentsDetail.push(comment);
+    });
   }
 
   ngOnInit() {
