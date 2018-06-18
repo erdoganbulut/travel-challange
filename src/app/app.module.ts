@@ -14,6 +14,7 @@ import { SingleComponent } from './routes/single/single.component';
 import { SingleService } from './services/single.service';
 import { ReplacePipe } from './pipes/replace.pipe';
 import { UiCardComponent } from './components/ui-card/ui-card.component';
+import { CommentsComponent } from './routes/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UiCardComponent } from './components/ui-card/ui-card.component';
     PostsComponent,
     SingleComponent,
     ReplacePipe,
-    UiCardComponent
+    UiCardComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
