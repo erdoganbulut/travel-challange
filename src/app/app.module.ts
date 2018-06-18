@@ -13,6 +13,7 @@ import { PostsComponent } from './routes/posts/posts.component';
 import { UsersService } from './services/users.service';
 import { SingleComponent } from './routes/single/single.component';
 import { SingleService } from './services/single.service';
+import { ReplacePipe } from './pipes/replace.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SingleService } from './services/single.service';
     StartComponent,
     MiniPostComponent,
     PostsComponent,
-    SingleComponent
+    SingleComponent,
+    ReplacePipe
   ],
   imports: [
     BrowserModule,
