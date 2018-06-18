@@ -34,17 +34,13 @@ export class StartComponent implements OnInit, OnDestroy {
 
   fillComments(value) {
     this.detailComments = {
-      title: `${value.length} COMMENTS`,
-      url: '/comments',
-      urlText: 'See All'
+      title: `${value.length} COMMENTS`
     };
   }
 
   fillUsers(value) {
     this.detailUsers = {
-      title: `${value.length} USERS`,
-      url: '/users',
-      urlText: 'See All'
+      title: `${value.length} USERS`
     };
   }
 
