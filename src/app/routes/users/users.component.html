@@ -1,0 +1,18 @@
+<section class="page page--user">
+  <div class="container-fluid">
+    <div class="row" *ngIf="usersDetail">
+      <div class="col-6 col-md-3 user--item" *ngFor="let user of usersDetail">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" [innerHtml]="user.name | replace"></h5>
+            <p class="card-text" [innerHtml]="user.username | replace"></p>
+            <p class="card-text" [innerHtml]="user.email | replace"></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let post of user.posts"><a [routerLink]="'/posts/' + post.id" [innerHtml]="post.title | replace"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

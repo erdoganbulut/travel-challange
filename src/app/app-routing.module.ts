@@ -4,6 +4,7 @@ import { StartComponent } from './routes/start/start.component';
 import { PostsComponent } from './routes/posts/posts.component';
 import { SingleComponent } from './routes/single/single.component';
 import { CommentsComponent } from './routes/comments/comments.component';
+import { UsersComponent } from './routes/users/users.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'comments',
     component: CommentsComponent,
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
   },
 ];
 

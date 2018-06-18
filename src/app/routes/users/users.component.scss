@@ -1,0 +1,13 @@
+$this: 'user';
+
+section.page {
+  &.page--#{$this} {
+    .#{$this}--item {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      .card {
+        border-radius: 0;
+      }
+    }
+  }
+}
